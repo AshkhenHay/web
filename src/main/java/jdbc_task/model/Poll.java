@@ -1,5 +1,7 @@
 package jdbc_task.model;
 
+import java.util.List;
+
 public class Poll {
     private long id;
 
@@ -7,16 +9,16 @@ public class Poll {
 
     private String description;
 
-    private Question question;
+    private List<Question> questions;
 
-    private Result result;
+    private List<Result> results;
 
-    public Poll(long id, String name, String description, Question question, Result result) {
+    public Poll(long id, String name, String description, List<Question> question, List<Result> result) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.question = question;
-        this.result = result;
+        this.questions = question;
+        this.results = result;
     }
 
     public Poll() {
@@ -46,20 +48,20 @@ public class Poll {
         this.description = description;
     }
 
-    public Question getQuestion() {
-        return question;
+    public List<Question> getQuestion() {
+        return questions;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
+    public void setQuestion(List<Question> question) {
+        this.questions = question;
     }
 
-    public Result getResult() {
-        return result;
+    public List<Result> getResult() {
+        return results;
     }
 
-    public void setResult(Result result) {
-        this.result = result;
+    public void setResult(List<Result> result) {
+        this.results = result;
     }
 
     @Override
@@ -68,8 +70,8 @@ public class Poll {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", questions=" + question +
-                ", results=" + result +
+                ", questions=" + questions +
+                ", results=" + results +
                 '}';
     }
 }

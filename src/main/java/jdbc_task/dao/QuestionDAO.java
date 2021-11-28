@@ -71,7 +71,6 @@ public class QuestionDAO {
         try {
             question.setId(resultSet.getLong(1));
             question.setText(resultSet.getString(2));
-            question.setAnswer(answerDAO.findById(resultSet.getLong(3)));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

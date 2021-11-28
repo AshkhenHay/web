@@ -64,12 +64,13 @@ public class ResultDAO {
             return resultList;
 
         }
-        public List<Result> findByScore(int i) {
+        public List<Result> findByScore(long pollId,int score) {
             List<Result> resultList = new LinkedList<>();
-            String sql = "SELECT * FROM result WHERE min_scope=? OR max_scope=?";
+            String sql = "SELECT * FROM result WHERE poll_id=? AND min_score=?";
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, i);
+                preparedStatement.setLong(1,pollId);
+                preparedStatement.setInt(2, score);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()) {
                     resultList.add(getResultFromResultSet(resultSet));

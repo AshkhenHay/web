@@ -37,7 +37,7 @@ public class PollDAO {
 
     public List<Poll> findALL() {
         List<Poll> pollList = new LinkedList<>();
-        String sql = "SELECT * FROM poll ";
+        String sql = "SELECT * FROM poll";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
@@ -58,8 +58,6 @@ public class PollDAO {
 
             poll.setName(resultSet.getString(2));
             poll.setDescription(resultSet.getString(3));
-            poll.setQuestion(questionDAO.findById(resultSet.getLong(4)));
-            poll.setResult(resultDAO.findById(resultSet.getLong(5)));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

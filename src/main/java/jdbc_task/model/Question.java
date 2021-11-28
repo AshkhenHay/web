@@ -1,17 +1,19 @@
 package jdbc_task.model;
 
 
+import java.util.List;
+
 public class Question {
     private long id;
 
     private String text;
 
-    private Answer answer;
+    private List<Answer> answers;
 
-    public Question(long id, String text, Answer answer) {
+    public Question(long id, String text, List<Answer> answer) {
         this.id = id;
         this.text = text;
-        this.answer = answer;
+        this.answers = answer;
     }
 
     public Question() {
@@ -34,12 +36,12 @@ public class Question {
     }
 
 
-    public Answer getAnswer() {
-        return answer;
+    public List<Answer> getAnswers() {
+        return answers;
     }
 
-    public void setAnswer(Answer answer) {
-        this.answer = answer;
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 
     @Override
@@ -47,7 +49,7 @@ public class Question {
         return "Question{" +
                 "id=" + id +
                 ", text='" + text + '\'' +
-                ", answers=" + answer +
+                ", answers=" + answers +
                 '}';
     }
 }
